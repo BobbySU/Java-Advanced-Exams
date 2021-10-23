@@ -1,2 +1,2 @@
 # Java-Advanced-Exams
-# Java Advanced Exercises in SoftUni
+Java Advanced Exams in SoftUni
