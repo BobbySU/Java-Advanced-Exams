@@ -5,11 +5,11 @@ import java.util.List;;
 
 public class GroomingSalon {
     private int capacity;
-    private List<Pet> petList;
+    private List<Pet> data;
 
     public GroomingSalon(int capacity) {
         this.capacity = capacity;
-        this.petList = new ArrayList<>();
+        this.data = new ArrayList<>();
     }
 
     public int getCapacity() {
@@ -17,15 +17,15 @@ public class GroomingSalon {
     }
 
     public void add(Pet pet) {
-        if (this.petList.size() < this.capacity) {
-            this.petList.add(pet);
+        if (this.data.size() < this.capacity) {
+            this.data.add(pet);
         }
     }
 
     public boolean remove(String name) {
-        for (int i = 0; i < this.petList.size(); i++) {
-            if (this.petList.get(i).getName().equals(name)) {
-                this.petList.remove(i);
+        for (int i = 0; i < this.data.size(); i++) {
+            if (this.data.get(i).getName().equals(name)) {
+                this.data.remove(i);
                 return true;
             }
         }
@@ -33,22 +33,22 @@ public class GroomingSalon {
     }
 
     public Pet getPet(String name, String owner) {
-        for (int i = 0; i < this.petList.size(); i++) {
-            if (this.petList.get(i).getName().equals(name)&&this.petList.get(i).getOwner().equals(owner)){
-                return this.petList.get(i);
+        for (int i = 0; i < this.data.size(); i++) {
+            if (this.data.get(i).getName().equals(name)&&this.data.get(i).getOwner().equals(owner)){
+                return this.data.get(i);
             }
         }
         return null;
     }
 
     public int getCount() {
-        return this.petList.size();
+        return this.data.size();
     }
 
     public String getStatistics() {
         StringBuilder sb = new StringBuilder();
         sb.append("The grooming salon has the following clients:").append(System.lineSeparator());
-        this.petList.forEach(e -> sb.append(String.format("%s %S",e.getName(),e.getOwner()))
+        this.data.forEach(e -> sb.append(String.format("%s %S",e.getName(),e.getOwner()))
                 .append(System.lineSeparator()));
         return sb.toString().trim();
     }
