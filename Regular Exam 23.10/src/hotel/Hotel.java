@@ -16,33 +16,33 @@ public class Hotel {
     }
 
     public void add(Person person) {
-        if (personList.size() < capacity) {
-            personList.add(person);
+        if (this.personList.size() < this.capacity) {
+            this.personList.add(person);
         }
     }
 
     public boolean remove(String name) {
-        Person person = null;
-        try {
-            person = personList.stream().filter(p -> p.getName().equals(name)).findFirst().get();
-        } catch (NoSuchElementException exception) {
+        for (int i = 0; i < this.personList.size(); i++) {
+            if (this.personList.get(i).getName().equals(name)) {
+                this.personList.remove(i);
+                return true;
+            }
         }
-        return personList.remove(person);
+        return false;
     }
 
     public Person getPerson(String name, String hometown) {
-        Person person = null;
-        try {
-            person = personList.stream()
-                    .filter(e -> e.getName().equals(name) && e.getHometown().equals(hometown))
-                    .findFirst().get();
-        } catch (NoSuchElementException exception) {
+        for (int i = 0; i < this.personList.size(); i++) {
+            if (this.personList.get(i).getName().equals(name)
+                    && this.personList.get(i).getHometown().equals(hometown)) {
+                return this.personList.get(i);
+            }
         }
-        return person;
+        return null;
     }
 
     public int getCount() {
-        return personList.size();
+        return this.personList.size();
     }
 
     public String getStatistics() {
