@@ -6,6 +6,7 @@ public class Exam02 {
     static int mCol = 0;
     static int mEat = 0;
 
+//    2. Mouse and Cheese
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
